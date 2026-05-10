@@ -55,7 +55,7 @@ export function HomeContent() {
     <main className="mx-auto h-[100dvh] max-w-[430px] overflow-y-auto bg-white pb-20 text-[#111111] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <header className="sticky top-0 z-30 border-b border-neutral-100 bg-white/95 px-4 backdrop-blur">
         <div className="flex h-12 items-center justify-between">
-          <button className="flex h-10 items-center gap-1.5 text-[21px] font-[850] tracking-normal" type="button">
+          <button className="flex h-10 items-center gap-1.5 text-[20px] font-[780] tracking-normal" type="button">
             창원 상남동
             <ChevronDown className="h-4 w-4 text-neutral-500" />
           </button>
@@ -129,7 +129,7 @@ export function HomeContent() {
 
 function SetupNotice({ message }: { message: string }) {
   return (
-    <div className="rounded-2xl bg-orange-50 p-4 text-[14px] font-bold leading-5 text-brand">
+    <div className="rounded-2xl bg-orange-50 p-4 text-[14px] font-[700] leading-5 text-brand">
       {message}
     </div>
   );

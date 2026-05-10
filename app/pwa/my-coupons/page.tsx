@@ -87,10 +87,10 @@ export default function PwaMyCouponsPage() {
       <header className="sticky top-0 z-30 border-b border-neutral-100 bg-white/95 px-4 backdrop-blur">
         <div className="flex h-12 items-center justify-between">
           <div>
-            <h1 className="text-[21px] font-[850] tracking-normal">내 쿠폰</h1>
-            <p className="text-[13px] font-[560] text-neutral-500">받은 쿠폰을 바로 사용하세요</p>
+            <h1 className="text-[20px] font-[780] tracking-normal">내 쿠폰</h1>
+            <p className="text-[13px] font-[430] text-neutral-500">받은 쿠폰을 바로 사용하세요</p>
           </div>
-          <div className="rounded-full bg-orange-50 px-3 py-1.5 text-[13px] font-black text-brand">
+          <div className="rounded-full bg-orange-50 px-3 py-1.5 text-[13px] font-[700] text-brand">
             {availableItems.length}개 가능
           </div>
         </div>
@@ -182,8 +182,8 @@ function TabButton({
       onClick={onClick}
       className={
         active
-          ? "h-10 rounded-xl bg-white text-[14px] font-black text-brand shadow-[0_1px_4px_rgba(0,0,0,0.08)]"
-          : "h-10 rounded-xl text-[14px] font-black text-neutral-500"
+          ? "h-10 rounded-xl bg-white text-[14px] font-[700] text-brand shadow-[0_1px_4px_rgba(0,0,0,0.08)]"
+          : "h-10 rounded-xl text-[14px] font-[500] text-neutral-500"
       }
     >
       {label}
@@ -193,7 +193,7 @@ function TabButton({
 
 function Notice({ message }: { message: string }) {
   return (
-    <div className="rounded-2xl bg-orange-50 p-4 text-[14px] font-bold leading-5 text-brand">
+    <div className="rounded-2xl bg-orange-50 p-4 text-[14px] font-[700] leading-5 text-brand">
       {message}
     </div>
   );

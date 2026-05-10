@@ -30,7 +30,7 @@ export function CouponListItem({
           style={{ backgroundImage: `url(${coupon.image_url})` }}
           aria-label={`${coupon.title} 상세 보기`}
         >
-          <span className="absolute left-1.5 top-1.5 rounded-full bg-brand px-2 py-0.5 text-[11px] font-black text-white">
+          <span className="absolute left-1.5 top-1.5 rounded-full bg-brand px-2 py-0.5 text-[11px] font-[760] text-white">
             {coupon.discount}
           </span>
         </Link>
@@ -38,17 +38,17 @@ export function CouponListItem({
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-2">
             <Link href={`/pwa/coupon/${coupon.id}`} className="min-w-0 text-inherit no-underline">
-              <p className="truncate text-[17px] font-[850] leading-tight text-[#111111]">
+              <p className="truncate text-[16px] font-[760] leading-tight text-[#111111]">
                 {coupon.title}
               </p>
-              <p className="mt-0.5 truncate text-[14px] font-[560] text-neutral-600">
+              <p className="mt-0.5 truncate text-[13px] font-[430] text-neutral-600">
                 {coupon.store}
               </p>
             </Link>
             <StatusBadge used={used} />
           </div>
 
-          <p className="mt-1.5 flex items-center gap-1 text-[12px] font-[560] text-neutral-500">
+          <p className="mt-1.5 flex items-center gap-1 text-[12px] font-[430] text-neutral-500">
             {used ? <CheckCircle2 className="h-3.5 w-3.5" /> : <Clock className="h-3.5 w-3.5" />}
             {used ? "사용 완료됨" : formatAvailableTime(coupon.expires_at)}
           </p>
@@ -61,7 +61,7 @@ export function CouponListItem({
               className={
                 used
                   ? "h-10 w-full text-[14px] text-neutral-500"
-                  : "h-10 w-full text-[15px] font-[850] shadow-[0_2px_8px_rgba(255,107,0,0.24)]"
+                  : "h-10 w-full text-[15px] font-[760] shadow-[0_2px_8px_rgba(255,107,0,0.24)]"
               }
               disabled={used}
               onClick={() => onMarkUsed?.(usageId)}
@@ -80,8 +80,8 @@ function StatusBadge({ used }: { used: boolean }) {
     <span
       className={
         used
-          ? "shrink-0 rounded-full bg-neutral-100 px-2.5 py-1 text-[11px] font-black text-neutral-500"
-          : "shrink-0 rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-black text-brand"
+          ? "shrink-0 rounded-full bg-neutral-100 px-2.5 py-1 text-[11px] font-[700] text-neutral-500"
+          : "shrink-0 rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-[700] text-brand"
       }
     >
       {used ? "완료" : "가능"}

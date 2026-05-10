@@ -35,14 +35,14 @@ export default async function CouponDetailPage({ params }: CouponDetailPageProps
         >
           <ArrowLeft className="h-5 w-5" strokeWidth={2.5} />
         </Link>
-        <span className="absolute bottom-3 left-4 rounded-full bg-brand px-4 py-2 text-lg font-black text-white shadow-[0_4px_12px_rgba(255,107,0,0.28)]">
+        <span className="absolute bottom-3 left-4 rounded-full bg-brand px-4 py-2 text-lg font-[760] text-white shadow-[0_4px_12px_rgba(255,107,0,0.28)]">
           {coupon.discount}
         </span>
       </section>
 
       <section className="px-4 pt-4">
-        <p className="text-sm font-black text-brand">{coupon.store}</p>
-        <h1 className="mt-1 text-[24px] font-[850] leading-tight tracking-normal">
+        <p className="text-sm font-[700] text-brand">{coupon.store}</p>
+        <h1 className="mt-1 text-[23px] font-[780] leading-tight tracking-normal">
           {coupon.title}
         </h1>
         <p className="mt-2 text-[15px] font-semibold leading-6 text-neutral-600">
@@ -63,7 +63,7 @@ export default async function CouponDetailPage({ params }: CouponDetailPageProps
       </section>
 
       <section className="mx-4 mt-3 rounded-[20px] bg-[#F5F5F5] p-4">
-        <p className="text-[15px] font-black">사용 방법</p>
+        <p className="text-[15px] font-[700]">사용 방법</p>
         <ol className="mt-2 space-y-1.5 text-sm font-semibold text-neutral-600">
           <li>1. 쿠폰받기 버튼을 누릅니다.</li>
           <li>2. 매장에서 쿠폰 화면을 보여줍니다.</li>
@@ -91,7 +91,7 @@ function SummaryCard({
     <Card className="rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
       <CardContent className="p-3">
         <p className="text-xs font-bold text-neutral-500">{label}</p>
-        <p className={`mt-1 text-[18px] font-black leading-tight ${tone === "brand" ? "text-brand" : "text-[#111111]"}`}>
+        <p className={`mt-1 text-[18px] font-[760] leading-tight ${tone === "brand" ? "text-brand" : "text-[#111111]"}`}>
           {value}
         </p>
       </CardContent>
@@ -115,7 +115,7 @@ function InfoRow({
       </div>
       <div className="min-w-0">
         <p className="text-xs font-bold text-neutral-500">{label}</p>
-        <p className="mt-0.5 text-[15px] font-black leading-snug text-[#111111]">{value}</p>
+        <p className="mt-0.5 text-[15px] font-[700] leading-snug text-[#111111]">{value}</p>
       </div>
     </div>
   );
