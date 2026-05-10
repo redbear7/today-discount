@@ -38,17 +38,17 @@ export function CouponListItem({
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-2">
             <Link href={`/pwa/coupon/${coupon.id}`} className="min-w-0 text-inherit no-underline">
-              <p className="truncate text-[16px] font-black leading-tight text-[#111111]">
+              <p className="truncate text-[17px] font-[850] leading-tight text-[#111111]">
                 {coupon.title}
               </p>
-              <p className="mt-0.5 truncate text-[13px] font-bold text-neutral-700">
+              <p className="mt-0.5 truncate text-[14px] font-[560] text-neutral-600">
                 {coupon.store}
               </p>
             </Link>
             <StatusBadge used={used} />
           </div>
 
-          <p className="mt-1.5 flex items-center gap-1 text-[12px] font-semibold text-neutral-500">
+          <p className="mt-1.5 flex items-center gap-1 text-[12px] font-[560] text-neutral-500">
             {used ? <CheckCircle2 className="h-3.5 w-3.5" /> : <Clock className="h-3.5 w-3.5" />}
             {used ? "사용 완료됨" : formatAvailableTime(coupon.expires_at)}
           </p>
@@ -61,7 +61,7 @@ export function CouponListItem({
               className={
                 used
                   ? "h-10 w-full text-[14px] text-neutral-500"
-                  : "h-10 w-full text-[15px] shadow-[0_2px_8px_rgba(255,107,0,0.24)]"
+                  : "h-10 w-full text-[15px] font-[850] shadow-[0_2px_8px_rgba(255,107,0,0.24)]"
               }
               disabled={used}
               onClick={() => onMarkUsed?.(usageId)}

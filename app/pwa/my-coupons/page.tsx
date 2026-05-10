@@ -87,8 +87,8 @@ export default function PwaMyCouponsPage() {
       <header className="sticky top-0 z-30 border-b border-neutral-100 bg-white/95 px-4 backdrop-blur">
         <div className="flex h-12 items-center justify-between">
           <div>
-            <h1 className="text-[20px] font-black tracking-[-0.04em]">내 쿠폰</h1>
-            <p className="text-[12px] font-semibold text-neutral-500">받은 쿠폰을 바로 사용하세요</p>
+            <h1 className="text-[21px] font-[850] tracking-normal">내 쿠폰</h1>
+            <p className="text-[13px] font-[560] text-neutral-500">받은 쿠폰을 바로 사용하세요</p>
           </div>
           <div className="rounded-full bg-orange-50 px-3 py-1.5 text-[13px] font-black text-brand">
             {availableItems.length}개 가능

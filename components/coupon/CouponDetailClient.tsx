@@ -84,10 +84,10 @@ export function CouponDetailClient({ couponId }: { couponId: string }) {
 
       <section className="px-4 pt-4">
         <p className="text-sm font-black text-brand">{coupon.store}</p>
-        <h1 className="mt-1 text-[24px] font-black leading-tight tracking-[-0.04em]">
+        <h1 className="mt-1 text-[24px] font-[850] leading-tight tracking-normal">
           {coupon.title}
         </h1>
-        <p className="mt-2 text-[15px] font-semibold leading-6 text-neutral-600">
+        <p className="mt-2 text-[15px] font-[560] leading-6 text-neutral-600">
           오늘 바로 사용할 수 있는 동네 할인 쿠폰입니다. 매장에서 쿠폰 화면을 보여주세요.
         </p>
       </section>

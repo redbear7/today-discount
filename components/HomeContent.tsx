@@ -55,7 +55,7 @@ export function HomeContent() {
     <main className="mx-auto h-[100dvh] max-w-[430px] overflow-y-auto bg-white pb-20 text-[#111111] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <header className="sticky top-0 z-30 border-b border-neutral-100 bg-white/95 px-4 backdrop-blur">
         <div className="flex h-12 items-center justify-between">
-          <button className="flex h-10 items-center gap-1.5 text-[18px] font-black tracking-[-0.03em]" type="button">
+          <button className="flex h-10 items-center gap-1.5 text-[21px] font-[850] tracking-normal" type="button">
             창원 상남동
             <ChevronDown className="h-4 w-4 text-neutral-500" />
           </button>

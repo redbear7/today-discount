@@ -23,7 +23,7 @@ export function BottomNavigation() {
             <Link
               key={href}
               href={href}
-              className="flex flex-col items-center justify-center gap-1 text-[11px] font-bold"
+              className="flex flex-col items-center justify-center gap-1 text-[12px] font-[680]"
               style={{ color: active ? "#FF6B00" : "#737373" }}
             >
               <Icon className="h-6 w-6" strokeWidth={active ? 2.8 : 2.4} fill={active && (label === "홈" || label === "인기") ? "currentColor" : "none"} />

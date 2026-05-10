@@ -42,7 +42,7 @@ export default async function CouponDetailPage({ params }: CouponDetailPageProps
 
       <section className="px-4 pt-4">
         <p className="text-sm font-black text-brand">{coupon.store}</p>
-        <h1 className="mt-1 text-[24px] font-black leading-tight tracking-[-0.04em]">
+        <h1 className="mt-1 text-[24px] font-[850] leading-tight tracking-normal">
           {coupon.title}
         </h1>
         <p className="mt-2 text-[15px] font-semibold leading-6 text-neutral-600">
