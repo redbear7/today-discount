@@ -7,7 +7,7 @@ import { Flame, Home, Ticket, UserRound } from "lucide-react";
 const items = [
   { href: "/pwa/home", label: "홈", icon: Home },
   { href: "/popular", label: "인기", icon: Flame },
-  { href: "/my-coupons", label: "내쿠폰", icon: Ticket },
+  { href: "/pwa/my-coupons", label: "내쿠폰", icon: Ticket },
   { href: "/my", label: "마이", icon: UserRound },
 ];
 
