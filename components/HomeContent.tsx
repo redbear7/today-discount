@@ -2,6 +2,7 @@ import { Bell, ChevronDown } from "lucide-react";
 import { CouponCard } from "@/components/coupon/CouponCard";
 import { BottomNavigation } from "@/components/layout/BottomNavigation";
 import { SearchBar } from "@/components/SearchBar";
+import { SectionHeader } from "@/components/SectionHeader";
 import { endingSoonCoupons, popularCoupons } from "@/lib/coupons";
 
 export function HomeContent() {
@@ -20,17 +21,13 @@ export function HomeContent() {
         </div>
       </header>
 
-      <div className="px-4 pt-3">
+      <div className="px-4 pt-2.5">
         <SearchBar />
       </div>
 
-      <section className="pt-5">
-        <div className="mb-3 flex items-end justify-between px-4">
-          <div>
-            <h1 className="text-[20px] font-black tracking-[-0.04em]">오늘 마감 할인</h1>
-            <p className="mt-0.5 text-[13px] font-semibold text-neutral-500">3초 안에 보고 바로 받기</p>
-          </div>
-          <button className="h-9 px-1 text-[13px] font-bold text-neutral-500" type="button">더보기</button>
+      <section className="pt-4">
+        <div className="px-4">
+          <SectionHeader title="오늘 마감 할인" subtitle="3초 안에 보고 바로 받기" />
         </div>
         <div className="flex gap-3 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {endingSoonCoupons.map((coupon) => (
@@ -39,16 +36,10 @@ export function HomeContent() {
         </div>
       </section>
 
-      <div className="mx-4 mt-5 border-t border-neutral-100" />
+      <div className="mx-4 mt-4 border-t border-neutral-100" />
 
-      <section className="px-4 pt-4">
-        <div className="mb-3 flex items-end justify-between">
-          <div>
-            <h2 className="text-[20px] font-black tracking-[-0.04em]">지금 인기 할인</h2>
-            <p className="mt-0.5 text-[13px] font-semibold text-neutral-500">상남동에서 많이 받는 쿠폰</p>
-          </div>
-          <button className="h-9 px-1 text-[13px] font-bold text-neutral-500" type="button">더보기</button>
-        </div>
+      <section className="px-4 pt-3.5">
+        <SectionHeader title="지금 인기 할인" subtitle="상남동에서 많이 받는 쿠폰" />
         <div className="space-y-2.5">
           {popularCoupons.map((coupon) => (
             <CouponCard key={coupon.id} {...coupon} href={`/coupons/${coupon.id}`} />
