@@ -18,6 +18,8 @@ const images = {
   cafe: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=640&q=80",
   sushi: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=640&q=80",
   noodle: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=640&q=80",
+  bakery: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=640&q=80",
+  pork: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=640&q=80",
 };
 
 export const coupons: Coupon[] = [
@@ -86,10 +88,36 @@ export const coupons: Coupon[] = [
     availableTime: "오늘 11:00 - 20:00",
     parking: "근처 공영주차장 이용",
   },
+  {
+    id: "sangnam-bakery-evening",
+    image: images.bakery,
+    title: "마감빵 2개 5천원",
+    store: "상남베이커리",
+    discount: "특가",
+    expiresAt: "오늘 오후 7시까지",
+    distance: "상남동 · 190m",
+    description: "마감 전 인기 빵 2개를 5천원에 가져갈 수 있는 오늘 한정 쿠폰입니다.",
+    address: "경남 창원시 성산구 상남로 41",
+    availableTime: "오늘 17:00 - 19:00",
+    parking: "매장 앞 잠시 정차 가능",
+  },
+  {
+    id: "pork-rice-dinner",
+    image: images.pork,
+    title: "돼지국밥 저녁 할인",
+    store: "상남돼지국밥",
+    discount: "20%",
+    expiresAt: "오늘 오후 9시까지",
+    distance: "상남동 · 620m",
+    description: "저녁 시간 방문 고객에게 돼지국밥 단품 20% 할인을 제공합니다.",
+    address: "경남 창원시 성산구 마디미로 51",
+    availableTime: "오늘 18:00 - 21:00",
+    parking: "인근 유료주차장 이용",
+  },
 ];
 
-export const endingSoonCoupons = coupons.slice(0, 3);
-export const popularCoupons = coupons.slice(3).concat(coupons[1]);
+export const endingSoonCoupons = coupons.slice(0, 4);
+export const popularCoupons = [coupons[3], coupons[4], coupons[1], coupons[5], coupons[6]];
 
 export function getCoupon(id: string) {
   return coupons.find((coupon) => coupon.id === id);
