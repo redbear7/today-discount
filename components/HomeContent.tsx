@@ -21,11 +21,11 @@ export function HomeContent() {
         </div>
       </header>
 
-      <div className="px-4 pt-2.5">
+      <div className="px-4 pt-2">
         <SearchBar />
       </div>
 
-      <section className="pt-4">
+      <section className="pt-3">
         <div className="px-4">
           <SectionHeader title="오늘 마감 할인" subtitle="3초 안에 보고 바로 받기" />
         </div>
@@ -36,9 +36,9 @@ export function HomeContent() {
         </div>
       </section>
 
-      <div className="mx-4 mt-4 border-t border-neutral-100" />
+      <div className="mx-4 mt-3 border-t border-neutral-100" />
 
-      <section className="px-4 pt-3.5">
+      <section className="px-4 pt-3">
         <SectionHeader title="지금 인기 할인" subtitle="상남동에서 많이 받는 쿠폰" />
         <div className="space-y-2.5">
           {popularCoupons.map((coupon) => (

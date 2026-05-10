@@ -36,7 +36,7 @@ export function CouponCard({
   if (compact) {
     return (
       <Wrapper>
-        <Card className="w-[146px] shrink-0 overflow-hidden rounded-2xl shadow-[0_1px_8px_rgba(0,0,0,0.08)]">
+        <Card className="w-[146px] shrink-0 overflow-hidden rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
           <div
             className="relative h-16 bg-cover bg-center"
             style={{ backgroundImage: `url(${image})` }}
@@ -45,7 +45,7 @@ export function CouponCard({
               {discount}
             </span>
           </div>
-          <CardContent className="p-2.5 pt-2">
+          <CardContent className="px-2.5 py-2">
             <p className="truncate text-[14px] font-black leading-tight text-[#111111]">{store}</p>
             <p className="mt-0.5 line-clamp-1 text-xs font-bold text-[#111111]">{title}</p>
             <p className="mt-0.5 flex items-center gap-1 text-[11px] font-semibold text-neutral-500">
@@ -60,8 +60,8 @@ export function CouponCard({
 
   return (
     <Wrapper>
-      <Card className="overflow-hidden rounded-2xl shadow-[0_1px_8px_rgba(0,0,0,0.08)]">
-        <CardContent className="flex gap-3 p-2.5">
+      <Card className="overflow-hidden rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+        <CardContent className="flex gap-3 px-2.5 py-2">
           <div
             className="relative h-[72px] w-[72px] shrink-0 rounded-2xl bg-cover bg-center"
             style={{ backgroundImage: `url(${image})` }}
@@ -77,11 +77,11 @@ export function CouponCard({
                 <p className="mt-0.5 truncate text-[13px] font-bold text-neutral-700">{store}</p>
               </div>
               {href ? (
-                <span className="inline-flex h-8 shrink-0 items-center justify-center rounded-2xl bg-brand px-3 text-[12px] font-black text-white">
+                <span className="inline-flex h-8 shrink-0 items-center justify-center rounded-2xl bg-brand px-3.5 text-[13px] font-black text-white shadow-[0_2px_6px_rgba(255,107,0,0.22)]">
                   받기
                 </span>
               ) : (
-                <Button size="sm" className="h-8 shrink-0 rounded-2xl px-3 text-[12px]">받기</Button>
+                <Button size="sm" className="h-8 shrink-0 rounded-2xl px-3.5 text-[13px] shadow-[0_2px_6px_rgba(255,107,0,0.22)]">받기</Button>
               )}
             </div>
             <div className="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5 text-[11px] font-semibold text-neutral-500">
