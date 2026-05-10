@@ -2,11 +2,19 @@ create table if not exists public.coupons (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   store text not null,
+  description text,
   discount text not null,
+  start_at timestamptz,
   expires_at timestamptz not null,
   image_url text not null,
+  owner_id uuid references auth.users(id) on delete set null,
   created_at timestamptz not null default now()
 );
+
+alter table public.coupons
+  add column if not exists description text,
+  add column if not exists start_at timestamptz,
+  add column if not exists owner_id uuid references auth.users(id) on delete set null;
 
 create table if not exists public.users (
   id uuid primary key default gen_random_uuid(),
@@ -32,6 +40,17 @@ create policy "MVP coupons are readable"
 on public.coupons for select
 using (true);
 
+drop policy if exists "MVP owners can create coupons" on public.coupons;
+create policy "MVP owners can create coupons"
+on public.coupons for insert
+with check (auth.uid() = owner_id);
+
+drop policy if exists "MVP owners can update own coupons" on public.coupons;
+create policy "MVP owners can update own coupons"
+on public.coupons for update
+using (auth.uid() = owner_id)
+with check (auth.uid() = owner_id);
+
 drop policy if exists "MVP users can be created and read" on public.users;
 create policy "MVP users can be created and read"
 on public.users for all
@@ -43,6 +62,38 @@ create policy "MVP coupon usage can be managed"
 on public.coupon_usage for all
 using (true)
 with check (true);
+
+insert into storage.buckets (id, name, public)
+values ('coupon-images', 'coupon-images', true)
+on conflict (id) do update set public = true;
+
+drop policy if exists "MVP coupon images are readable" on storage.objects;
+create policy "MVP coupon images are readable"
+on storage.objects for select
+using (bucket_id = 'coupon-images');
+
+drop policy if exists "MVP owners can upload coupon images" on storage.objects;
+create policy "MVP owners can upload coupon images"
+on storage.objects for insert
+with check (
+  bucket_id = 'coupon-images'
+  and auth.role() = 'authenticated'
+  and storage.foldername(name)[1] = auth.uid()::text
+);
+
+drop policy if exists "MVP owners can update coupon images" on storage.objects;
+create policy "MVP owners can update coupon images"
+on storage.objects for update
+using (
+  bucket_id = 'coupon-images'
+  and auth.role() = 'authenticated'
+  and storage.foldername(name)[1] = auth.uid()::text
+)
+with check (
+  bucket_id = 'coupon-images'
+  and auth.role() = 'authenticated'
+  and storage.foldername(name)[1] = auth.uid()::text
+);
 
 insert into public.coupons (title, store, discount, expires_at, image_url)
 values

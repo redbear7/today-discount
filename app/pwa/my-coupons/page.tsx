@@ -35,7 +35,7 @@ export default function PwaMyCouponsPage() {
 
     const { data, error } = await supabase
       .from("coupon_usage")
-      .select("id,user_id,coupon_id,status,created_at,coupons(id,title,store,discount,expires_at,image_url,created_at)")
+      .select("id,user_id,coupon_id,status,created_at,coupons(id,title,store,description,discount,start_at,expires_at,image_url,owner_id,created_at)")
       .eq("user_id", userId)
       .order("created_at", { ascending: false });
 

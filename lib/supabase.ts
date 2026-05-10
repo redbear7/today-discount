@@ -4,9 +4,12 @@ export type CouponRow = {
   id: string;
   title: string;
   store: string;
+  description: string | null;
   discount: string;
+  start_at: string | null;
   expires_at: string;
   image_url: string;
+  owner_id: string | null;
   created_at: string;
 };
 

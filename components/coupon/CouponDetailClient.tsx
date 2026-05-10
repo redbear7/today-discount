@@ -25,7 +25,7 @@ export function CouponDetailClient({ couponId }: { couponId: string }) {
 
       const { data, error } = await supabase
         .from("coupons")
-        .select("id,title,store,discount,expires_at,image_url,created_at")
+        .select("id,title,store,description,discount,start_at,expires_at,image_url,owner_id,created_at")
         .eq("id", couponId)
         .single();
 
