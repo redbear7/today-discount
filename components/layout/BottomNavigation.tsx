@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Flame, Home, Ticket, UserRound } from "lucide-react";
+import { Bot, Home, Ticket, UserRound } from "lucide-react";
 
 const items = [
   { href: "/pwa/home", label: "홈", icon: Home },
-  { href: "/popular", label: "인기", icon: Flame },
+  { href: "/pwa/ai-food", label: "AI맛집", icon: Bot },
   { href: "/pwa/my-coupons", label: "내쿠폰", icon: Ticket },
   { href: "/my", label: "마이", icon: UserRound },
 ];
@@ -26,7 +26,7 @@ export function BottomNavigation() {
               className="flex flex-col items-center justify-center gap-1 text-[12px] font-[500]"
               style={{ color: active ? "#FF6B00" : "#737373" }}
             >
-              <Icon className="h-6 w-6" strokeWidth={active ? 2.8 : 2.4} fill={active && (label === "홈" || label === "인기") ? "currentColor" : "none"} />
+              <Icon className="h-6 w-6" strokeWidth={active ? 2.8 : 2.4} fill={active && label === "홈" ? "currentColor" : "none"} />
               <span>{label}</span>
             </Link>
           );

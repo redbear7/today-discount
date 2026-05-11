@@ -31,9 +31,45 @@ create table if not exists public.coupon_usage (
   unique (user_id, coupon_id)
 );
 
+create table if not exists public.restaurants (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  area text not null,
+  category text,
+  price_range text,
+  tags text[] not null default '{}',
+  description text,
+  recommended_for text,
+  thumbnail text,
+  local_score integer not null default 50,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists public.restaurant_submissions (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  area text not null,
+  reason text not null,
+  tags text[] not null default '{}',
+  status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
+  created_at timestamptz not null default now()
+);
+
+create table if not exists public.recommendation_logs (
+  id uuid primary key default gen_random_uuid(),
+  user_query text not null,
+  extracted_area text,
+  extracted_intents text[] not null default '{}',
+  recommended_restaurant_ids text[] not null default '{}',
+  created_at timestamptz not null default now()
+);
+
 alter table public.coupons enable row level security;
 alter table public.users enable row level security;
 alter table public.coupon_usage enable row level security;
+alter table public.restaurants enable row level security;
+alter table public.restaurant_submissions enable row level security;
+alter table public.recommendation_logs enable row level security;
 
 drop policy if exists "MVP coupons are readable" on public.coupons;
 create policy "MVP coupons are readable"
@@ -61,6 +97,21 @@ drop policy if exists "MVP coupon usage can be managed" on public.coupon_usage;
 create policy "MVP coupon usage can be managed"
 on public.coupon_usage for all
 using (true)
+with check (true);
+
+drop policy if exists "MVP restaurants are readable" on public.restaurants;
+create policy "MVP restaurants are readable"
+on public.restaurants for select
+using (true);
+
+drop policy if exists "MVP restaurant submissions can be created" on public.restaurant_submissions;
+create policy "MVP restaurant submissions can be created"
+on public.restaurant_submissions for insert
+with check (true);
+
+drop policy if exists "MVP recommendation logs can be created" on public.recommendation_logs;
+create policy "MVP recommendation logs can be created"
+on public.recommendation_logs for insert
 with check (true);
 
 insert into storage.buckets (id, name, public)
